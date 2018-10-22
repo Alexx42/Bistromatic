@@ -52,6 +52,11 @@ char	*parse_atoms(char **str, t_parse *parse)
 	i = 0;
 	n = 0;
 	ptr = ft_memalloc(len + 1);
+	if((*str)[i] == '-' && (*str)[i + 1] =='(')
+	{
+		(*str)[i] = '*';
+		return ft_strdup("-1");
+	}
 	if (**str == '(')
 	{
 		++(*str);
@@ -73,34 +78,28 @@ char	*parse_atoms(char **str, t_parse *parse)
 		return (NULL);
 	while (i--  > 0 && (*str)[i] != '-')
 	{
-//		parse->neg = 0;
 		parse->par = 1;
 		(*str)++;
 	}
 	return (ptr);
 }
 
+
+
 char	*parse_factors(char **str, t_parse *parse)
 {
 	char	*num1;
 	char	*num2;
 	char	op;
-	char 	*init;
-
-	init = (char*)malloc(2);
-	if (parse->neg == 0)
-	{
-		init[0] = '-';
-		init[1] = 1;
-	}
 
 	num1 = parse_atoms(str, parse);
+
 	while (1)
 	{
 		parse->neg = 0;
 		op = **str;
 		if (op != '/' && op != '*' && op != '%')
-			return (mult(num1, init, parse));
+			return (num1);
 		++(*str);
 		num2 = parse_atoms(str, parse);
 		if (op == '/')

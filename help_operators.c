@@ -43,34 +43,34 @@ void		swap(char **a, char **b, int *len_a, int *len_b)
 
 char		*str_reverse_in_place(char *str, t_parse *parse)
 {
-    char *p1;
-    char *p2;
+	char *p1;
+	char *p2;
 	char tmp;
 	int len;
 
 	len = ft_strlen(str);
 	p1 = str;
 	p2 = str + (len - 1);
-    while (p1 < p2)
+	while (p1 < p2)
 	{
-        tmp = *p1;
-        *p1++ = *p2;
-        *p2-- = tmp;
-    }
-    return (str);
+		tmp = *p1;
+		*p1++ = *p2;
+		*p2-- = tmp;
+	}
+	return (str);
 }
 
 void		*mm_realloc (void *ptr, size_t size)
 {
-    void *newptr;
+	void *newptr;
 
-    newptr = (char *)malloc(size);
-    if (newptr == NULL)
+	newptr = (char *)malloc(size);
+	if (newptr == NULL)
 		return NULL;
-    if (ptr != NULL)
+	if (ptr != NULL)
 	{
-    	ft_memcpy(newptr, ptr, size);
-    	free(ptr);
-    }
-    return (newptr);
+		ft_memcpy(newptr, ptr, size);
+		free(ptr);
+	}
+	return (newptr);
 }

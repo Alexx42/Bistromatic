@@ -35,7 +35,7 @@ int		is_base(char c, t_parse *parse)
 		if (c == parse->value_base[i])
 			return (i);
 	if (c == '/' || c == '*' || c == '%' || c == '+'
-	|| c == '-' || c == '\0' || c == ')' || c == '(')
+		|| c == '-' || c == '\0' || c == ')' || c == '(')
 		return (-1);
 	return (-2);
 }

@@ -44,6 +44,8 @@ char				*new_array(char *res, int len1, int len2, t_parse *parse);
 void				shift_right_minus(char **str, int *len, t_parse *parse);
 void				remove_elem(char **str, t_parse *parse, int len);
 char				*division(char *a, char *b, t_parse *parse);
+char				*del_spaces(char *str);
+
 
 
 #endif
